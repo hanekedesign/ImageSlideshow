@@ -24,7 +24,7 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
     open var gestureRecognizer: UITapGestureRecognizer?
 
     /// Holds if the zoom feature is enabled
-    public let zoomEnabled: Bool
+    public var zoomEnabled: Bool
 
     /// If set to true image is initially zoomed in
     open var zoomInInitially = false

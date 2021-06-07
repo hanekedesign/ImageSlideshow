@@ -9,7 +9,7 @@ import UIKit
 
 @objc
 /// The delegate protocol informing about image slideshow state changes
-public protocol ImageSlideshowDelegate: class {
+public protocol ImageSlideshowDelegate: AnyObject {
     /// Tells the delegate that the current page has changed
     ///
     /// - Parameters:
@@ -175,7 +175,10 @@ open class ImageSlideshow: UIView {
     /// Enables/disables zoom
     open var zoomEnabled = false {
         didSet {
-            reloadScrollView()
+			for item in slideshowItems {
+				item.zoomEnabled = zoomEnabled
+				item.setNeedsLayout()
+			}
         }
     }
 
