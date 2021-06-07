@@ -30,6 +30,9 @@ let package = Package(
         .target(
             name: "ImageSlideshow",
             path: "ImageSlideshow",
+			exclude: [
+				"Classes/InputSources/"
+			],
             sources: [
                 "Classes/Core/ActivityIndicator.swift",
                 "Classes/Core/Bundle+Module.swift",
@@ -52,16 +55,37 @@ let package = Package(
             name: "ImageSlideshowAlamofire",
             dependencies: ["ImageSlideshow", "AlamofireImage"],
             path: "ImageSlideshow/Classes/InputSources",
+			exclude: [
+				"SDWebImageSource.swift",
+				"KingfisherSource.swift",
+				"AFURLSource.swift",
+				"ParseSource.swift",
+				"AlamofireLegacySource.swift"
+			],
             sources: ["AlamofireSource.swift"]),
         .target(
             name: "ImageSlideshowSDWebImage",
             dependencies: ["ImageSlideshow", "SDWebImage"],
             path: "ImageSlideshow/Classes/InputSources",
+			exclude: [
+				"ParseSource.swift",
+				"KingfisherSource.swift",
+				"AFURLSource.swift",
+				"AlamofireLegacySource.swift",
+				"AlamofireSource.swift"
+			],
             sources: ["SDWebImageSource.swift"]),
         .target(
             name: "ImageSlideshowKingfisher",
             dependencies: ["ImageSlideshow", "Kingfisher"],
             path: "ImageSlideshow/Classes/InputSources",
+			exclude: [
+				"AFURLSource.swift",
+				"ParseSource.swift",
+				"AlamofireSource.swift",
+				"SDWebImageSource.swift",
+				"AlamofireLegacySource.swift"
+			],
             sources: ["KingfisherSource.swift"])
     ],
     swiftLanguageVersions: [.v4, .v4_2, .v5]
